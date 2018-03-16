@@ -1,0 +1,42 @@
+.nice-menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background: #dadada;
+  border: 2px solid #dadada;
+  border-radius: 5px;
+  cursor: default;
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 500;
+  /* bottom: -1.875em; */
+  bottom: calc(-2.5em / 2 - 10px);
+  transform-origin: 0 50%;
+  /* transform: scale(0.7); */
+  /* max-width: inherit; */
+  /* left: 20px; */
+}
+.nice-item {
+  /* box-sizing: border-box; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.16em;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0.3125em solid #e2e2e2;
+  border-radius: 0.3125em;
+  background: #767676;
+  color: #fff;
+  /* font-size: 1.2rem; */
+  box-shadow: 1px 1px 1px #767676;
+}
+.nice-item:hover {
+  color: #ecb8b8;
+}
+.nice-menu .active {
+  /* color: #9ebfdf; */
+  color: #ecb8b8;
+  /* box-shadow: 1px 1px 1px #767676; */
+}

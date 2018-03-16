@@ -1,0 +1,52 @@
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Comment } from "../components/Comment";
+import { MainPost } from "../components/MainPost";
+import { connect } from "react-redux";
+import Icon from "semantic-ui-react/dist/es/elements/Icon";
+
+class Comments extends Component {
+  static propTypes = {
+    data: PropTypes.object,
+    isLoading: PropTypes.bool,
+    dispatch: PropTypes.func.isRequired
+  };
+
+  componentWillMount() {
+    this.fetchData();
+  }
+
+  render() {
+    const { data, isLoading } = this.props;
+    return (
+      <div style={{ marginTop: "2rem" }}>
+        {isLoading && <Icon name="spinner" size="huge" loading />}
+        {data && data.post && <MainPost post={data.post} />}
+        {data &&
+          data.comments &&
+          data.comments.map((level, i) => {
+            return (
+              <div key={i} className="ui segment">
+                {level.map(cmt => <Comment key={cmt.id} cmt={cmt} />)}
+              </div>
+            );
+          })}
+      </div>
+    );
+  }
+
+  fetchData() {
+    const { dispatch, location } = this.props;
+    const url = `${location.pathname}.json${location.search}`;
+    dispatch({ type: "FETCH", url });
+  }
+}
+
+const mapState = state => {
+  return {
+    data: state.fetch.data,
+    isLoading: state.fetch.isLoading
+  };
+};
+
+export default connect(mapState)(Comments);

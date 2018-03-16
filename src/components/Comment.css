@@ -1,0 +1,19 @@
+.comment:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.comment code {
+  background: #f5f5f5;
+  padding: 0 0.2em;
+}
+.comment pre {
+  background: #f5f5f5;
+  padding: 0.5em;
+  white-space: pre-wrap;
+  /* word-wrap: break-word; */
+}
+.comment blockquote {
+  margin: 0.2em 0;
+  padding: 1em;
+  background: #f5f5f5;
+  border-left: 3px solid #d4d4d4;
+}
