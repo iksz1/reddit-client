@@ -17,12 +17,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(redditApi, subsPersist))
 );
 
-// const store = createStore(
-//   combineReducers(reducers),
-//   {},
-//   applyMiddleware(redditApi)
-// );
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

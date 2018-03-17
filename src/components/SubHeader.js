@@ -22,7 +22,7 @@ export const SubHeader = ({ name, loading, onSubClick }) => {
 
 SubHeader.propTypes = {
   name: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
   onSubClick: PropTypes.func.isRequired
 };
 

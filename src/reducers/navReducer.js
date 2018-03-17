@@ -1,8 +1,8 @@
 export const navReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ACTIVE_REDDIT":
-      return action.item.toLowerCase();
+      return { active: action.item.toLowerCase() };
     default:
       return state;
   }
-}
+};

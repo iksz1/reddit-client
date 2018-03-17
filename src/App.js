@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <Router>
         <div className="ui container">
-          <header className="">
-            <Nav />
+          <header>
+            <Route component={Nav} />
           </header>
           <main>
             <Switch>

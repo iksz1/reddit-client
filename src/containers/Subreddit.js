@@ -10,7 +10,9 @@ class Subreddit extends Component {
   static propTypes = {
     data: PropTypes.object,
     isLoading: PropTypes.bool,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired
   };
 
   componentWillMount() {
@@ -66,7 +68,7 @@ class Subreddit extends Component {
               <Post
                 key={post.id}
                 post={post}
-                onShowComments={e => this.showComments(e, post.permalink)}
+                onClickComments={e => this.showComments(e, post.permalink)}
               />
             ))}
         </div>

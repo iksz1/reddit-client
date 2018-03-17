@@ -59,15 +59,16 @@ footer {
   color: #767676;
   /* box-shadow: 0 0 5px #d4d4d5;   */
 }
-/* .settings-btn {
+.settings-btn {
   width: 30px;
   height: 30px;
   margin-top: 10px;
   margin-right: 10px;
   font-size: 1.5rem;
   color: rgba(118, 118, 118, 0.5);
-} */
-strong {
+}
+strong,
+b {
   font-weight: 500;
 }
 .main-post pre {
@@ -117,7 +118,7 @@ strong {
 }
 
 @media screen and (max-width: 568px) {
-  .main-content {
+  main {
     padding: 30px 10px;
   }
   header {

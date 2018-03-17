@@ -9,7 +9,8 @@ class Comments extends Component {
   static propTypes = {
     data: PropTypes.object,
     isLoading: PropTypes.bool,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired
   };
 
   componentWillMount() {

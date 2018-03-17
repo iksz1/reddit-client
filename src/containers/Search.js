@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import SearchInput from "semantic-ui-react/dist/es/modules/Search";
 import { withRouter } from "react-router-dom";
 
 class Search extends Component {
+  static propTypes = {
+    history: PropTypes.object.isRequired
+  };
+
   state = {
     value: "",
     results: [],
@@ -20,7 +24,6 @@ class Search extends Component {
   };
 
   getSubreddits = async value => {
-    // const { value } = this.state;
     if (!value) return;
     this.setState({ ...this.state, isLoading: true });
     const response = await fetch(
@@ -50,7 +53,6 @@ class Search extends Component {
         loading={isLoading}
         onSearchChange={this.handleInput}
         onResultSelect={this.resultSelect}
-        // icon="search"
         placeholder="search for subreddit"
         size="mini"
         // minCharacters={2}
