@@ -1,12 +1,11 @@
-html {
+/* html {
   font-size: 100%;
-}
+} */
 body {
   margin: 0;
   padding: 0;
   background: #dadada;
   color: #4c4c4c;
-  /* color: #b75050; */
   font-family: "Roboto";
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
@@ -18,12 +17,8 @@ h4 {
   margin-bottom: 0.2rem;
   font-family: inherit;
   font-weight: 500;
-  /* color: #ca6767; */
 }
-/* .mabo {
-  margin-bottom: 1em;
-} */
-main {
+.main-content {
   flex: 1;
   margin: 0;
   padding: 30px 20px;
@@ -39,8 +34,7 @@ header {
   background: #f9f9f9;
   border: 10px solid #fff;
   border-bottom: none;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px 10px 0 0;
   position: relative;
 }
 footer {
@@ -48,16 +42,15 @@ footer {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  font-size: 0.8rem;
   height: 50px;
   margin-bottom: 30px;
   margin-top: 10px;
   background: #f9f9f9;
   border: 10px solid #fff;
   border-top: none;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 0 0 10px 10px;
   color: #767676;
-  /* box-shadow: 0 0 5px #d4d4d5;   */
 }
 .settings-btn {
   width: 30px;
@@ -73,7 +66,6 @@ b {
 }
 .main-post pre {
   white-space: pre-wrap;
-  /* overflow: scroll; */
 }
 .post {
   max-width: 720px;
@@ -95,15 +87,9 @@ b {
   line-height: 1;
   background: #e8e8e8;
   font-size: 0.8rem;
-  /* text-align: center; */
   padding: 2px 5px;
-  /* border: 1px hidden #fff; */
   border-radius: 500px;
 }
-/* .subreddit-name {
-  font-size: 1rem;
-  font-weight: bold
-} */
 .ui.search .prompt {
   border-radius: 0.285rem;
 }
@@ -118,7 +104,7 @@ b {
 }
 
 @media screen and (max-width: 568px) {
-  main {
+  .main-content {
     padding: 30px 10px;
   }
   header {

@@ -4,19 +4,17 @@ import { connect } from "react-redux";
 import "./Nav.css";
 
 const Nav = ({ items, active, history }) => (
-  // <div style={{ display: "flex", alignItems: "flex-end" }}>
   <ul className="nice-menu">
     {items.map(item => (
       <li
         key={item.name}
         className={`nice-item ${item.name === active ? "active" : ""}`}
-        onClick={() => history.push(`/r/${item.name}`)} //multiple procs
+        onClick={() => history.push(`/r/${item.name}`)} //prevent repeating
       >
         {item.text}
       </li>
     ))}
   </ul>
-  // </div>
 );
 
 Nav.propTypes = {

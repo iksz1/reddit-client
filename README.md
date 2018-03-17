@@ -1,3 +1,5 @@
-### Simple reddit client
+### Mir - simple reddit client
 
-**Built with:** CRA, Redux, semantic-ui
+**URL:** [https://mir.netlify.com/](https://mir.netlify.com/)<br>
+**Features:** original design, easy to use<br>
+**Built with:** CRA, Redux, semantic-ui<br>

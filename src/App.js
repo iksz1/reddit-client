@@ -13,15 +13,15 @@ class App extends Component {
           <header>
             <Route component={Nav} />
           </header>
-          <main>
+          <div className="main-content">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/r/:subreddit" component={Subreddit} />
               <Route path="/r/:subreddit/comments/:postId" component={Comments} />
             </Switch>
-          </main>
+          </div>
           <footer>
-            <p>MiR - client for reddit</p>
+            <p>HOME | LINKS | CREDITS</p>
           </footer>
         </div>
       </Router>

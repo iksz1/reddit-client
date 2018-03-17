@@ -37,8 +37,7 @@ class Post extends Component {
           style={{ display: expanded ? "block" : "none" }}
         />
         <div className="post-info">
-          {post.score} <Icon name="thumbs outline up" />
-          by <strong>{post.author}</strong> {time}
+          {post.score} <Icon name="thumbs outline up" /> by <b>{post.author}</b> {time}
           <a href={post.permalink} onClick={onClickComments}>
             &nbsp;&nbsp;{post.num_comments || ""} <Icon name="comment outline" />
           </a>
