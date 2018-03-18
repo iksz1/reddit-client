@@ -55,9 +55,12 @@ footer {
 .settings-btn {
   width: 30px;
   height: 30px;
-  margin-top: 10px;
-  margin-right: 10px;
-  font-size: 1.5rem;
+  /* margin-top: 10px;
+  margin-right: 10px; */
+  /* font-size: 1.5rem; */
+  position: absolute;
+  top: 0;
+  right: 0;
   color: rgba(118, 118, 118, 0.5);
 }
 strong,

@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import "./Nav.css";
 
-const Nav = ({ items, active, history }) => (
+export const Nav = ({ items, active, handleClick }) => (
   <ul className="nice-menu">
     {items.map(item => (
       <li
         key={item.name}
         className={`nice-item ${item.name === active ? "active" : ""}`}
-        onClick={() => history.push(`/r/${item.name}`)} //prevent repeating
+        onClick={() => handleClick(item.name)}
       >
         {item.text}
       </li>
@@ -19,13 +19,6 @@ const Nav = ({ items, active, history }) => (
 
 Nav.propTypes = {
   items: PropTypes.array.isRequired,
-  history: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired,
   active: PropTypes.string
 };
-
-const mapState = state => ({
-  items: state.subs.items,
-  active: state.nav.active
-});
-
-export default connect(mapState)(Nav);

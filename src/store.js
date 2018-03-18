@@ -1,4 +1,4 @@
-const DEFAULT_SUBS = [ 
+const DEFAULT_SUBS = [
   { name: "javascript", text: "J" },
   { name: "reactjs", text: "R" },
   { name: "web_design", text: "W" }
@@ -14,9 +14,8 @@ const loadSubs = () => {
   } catch (error) {
     return DEFAULT_SUBS;
   }
-
-}
+};
 
 export const initStore = {
-  subs: { items: loadSubs() }
-}
+  nav: { items: loadSubs() }
+};

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from "./containers/Nav";
+import Header from "./containers/Header";
 import Subreddit from "./containers/Subreddit";
 import Comments from "./containers/Comments";
 import { Home } from "./components/Home";
@@ -10,9 +10,7 @@ class App extends Component {
     return (
       <Router>
         <div className="ui container">
-          <header>
-            <Route component={Nav} />
-          </header>
+          <Route component={Header} />
           <div className="main-content">
             <Switch>
               <Route exact path="/" component={Home} />

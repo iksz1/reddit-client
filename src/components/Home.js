@@ -1,4 +1,5 @@
 import React from "react";
+// import Checkbox from "semantic-ui-react/dist/es/modules/Checkbox";
 
 export const Home = () => {
   return (
@@ -15,6 +16,9 @@ export const Home = () => {
         </p>
         <p>Thanks for your time.</p>
       </div>
+      {/* <div>
+        <Checkbox label="don't show again" />
+      </div> */}
     </div>
   );
 };

@@ -1,9 +1,8 @@
+import { combineReducers } from "redux";
 import { fetchReducer } from "./fetchReducer";
-import { subsReducer } from "./subsReducer";
 import { navReducer } from "./navReducer";
 
-export default {
+export default combineReducers({
   fetch: fetchReducer,
-  subs: subsReducer,
   nav: navReducer
-};
+});

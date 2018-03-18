@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Post from "../components/Post";
 import { SubHeader } from "../components/SubHeader";
-import Search from "./Search";
 // import Icon from "semantic-ui-react/dist/es/elements/Icon";
 
 class Subreddit extends Component {
@@ -53,9 +52,6 @@ class Subreddit extends Component {
     const { data, isLoading, match } = this.props;
     return (
       <div style={{ marginTop: "2rem" }}>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Search />
-        </div>
         <SubHeader
           name={match.params.subreddit.toUpperCase()}
           loading={isLoading}

@@ -3,16 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import reducers from "./reducers";
+import reducer from "./reducers/rootReducer";
 import { redditApi } from "./middleware/redditApi";
 import { subsPersist } from "./middleware/subsPersist";
 import { initStore } from "./store";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  combineReducers(reducers),
+  reducer,
   initStore,
   composeEnhancers(applyMiddleware(redditApi, subsPersist))
 );
