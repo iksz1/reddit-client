@@ -5,10 +5,10 @@
   cursor: pointer;
   font-size: 0.9rem;
 }
-.search-item {
+.search-results li {
   padding: 2px;
 }
-.search-item:hover {
+.search-results li:hover {
   background: #f5f5f5;
   /* padding: 0.5em 0; */
 }

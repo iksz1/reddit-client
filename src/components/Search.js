@@ -20,8 +20,12 @@ class CustomSearch extends Component {
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
-    this.timeout = setTimeout(() => this.getSubreddits(value), 1000);
-    this.setState({ isLoading: true, results: [] });
+    if (value) {
+      this.timeout = setTimeout(() => this.getSubreddits(value), 1000);
+      this.setState({ isLoading: true });
+    } else {
+      this.setState({ isLoading: false });
+    }
   };
 
   resultSelect = item => {
@@ -54,11 +58,12 @@ class CustomSearch extends Component {
         />
         <ul className="search-results">
           {results.map((item, i) => (
-            <li key={i} onClick={() => this.resultSelect(item)} className="search-item">
+            <li key={i} onClick={() => this.resultSelect(item)}>
               {item}
             </li>
           ))}
         </ul>
+        {!isLoading && !results.length && <p>Nothing to show</p>}
       </div>
     );
   }

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Nav } from "../components/Nav";
 import SearchPopup from "../components/SearchPopup";
+import SearchModal from "../components/SearchModal";
 
 class Header extends Component {
   static propTypes = {
@@ -24,7 +25,7 @@ class Header extends Component {
     return (
       <header>
         <Nav items={items} active={active} handleClick={this.historyPush} />
-        <SearchPopup />
+        <SearchModal />
       </header>
     );
   }

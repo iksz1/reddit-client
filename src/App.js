@@ -4,14 +4,14 @@ import Header from "./containers/Header";
 import Subreddit from "./containers/Subreddit";
 import Comments from "./containers/Comments";
 import { Home } from "./components/Home";
-import SearchPopup from "./components/SearchPopup";
+import SearchModal from "./components/SearchModal";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="ui container">
-          <SearchPopup />
+          <SearchModal />
           <Route component={Header} />
           <div className="main-content">
             <Switch>
