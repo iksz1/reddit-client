@@ -14,13 +14,14 @@ class CustomSearch extends Component {
     isLoading: false
   };
 
+  timeout = null;
+
   handleInput = (e, { value }) => {
-    const { timeout } = this.state;
-    if (timeout) {
-      clearTimeout(timeout);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
     }
-    const newTimeout = setTimeout(() => this.getSubreddits(value), 1000);
-    this.setState({ timeout: newTimeout, results: [] });
+    this.timeout = setTimeout(() => this.getSubreddits(value), 1000);
+    this.setState({ isLoading: true, results: [] });
   };
 
   resultSelect = item => {
@@ -31,12 +32,11 @@ class CustomSearch extends Component {
   getSubreddits = async value => {
     if (!value) return;
 
-    this.setState({ ...this.state, isLoading: true });
     const response = await fetch(
       `https://www.reddit.com/api/search_reddit_names.json?query=${value}`
     );
     const { names } = await response.json();
-    this.setState({ ...this.state, results: names, isLoading: false });
+    this.setState({ isLoading: false, results: names });
   };
 
   render() {

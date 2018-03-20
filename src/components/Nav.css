@@ -25,7 +25,7 @@
   border-radius: 0.3125em;
   background: #767676;
   color: #fff;
-  /* box-shadow: 1px 1px 1px #767676; */
+  box-shadow: 1px 1px 1px #767676;
 }
 .nice-menu li:hover {
   color: #ecb8b8;
