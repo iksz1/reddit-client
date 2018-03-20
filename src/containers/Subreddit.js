@@ -15,8 +15,7 @@ class Subreddit extends Component {
   };
 
   componentWillMount() {
-    const subreddit = this.props.match.params.subreddit;
-    this.fetchData(subreddit);
+    this.fetchData(this.props.match.params.subreddit);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,6 +49,7 @@ class Subreddit extends Component {
 
   render() {
     const { data, isLoading, match } = this.props;
+
     return (
       <div style={{ marginTop: "2rem" }}>
         <SubHeader

@@ -4,12 +4,14 @@ import Header from "./containers/Header";
 import Subreddit from "./containers/Subreddit";
 import Comments from "./containers/Comments";
 import { Home } from "./components/Home";
+import SearchPopup from "./components/SearchPopup";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="ui container">
+          <SearchPopup />
           <Route component={Header} />
           <div className="main-content">
             <Switch>
@@ -19,7 +21,11 @@ class App extends Component {
             </Switch>
           </div>
           <footer>
-            <p>HOME | LINKS | CREDITS</p>
+            <ul className="nice-menu">
+              <li>M</li>
+              <li>i</li>
+              <li>R</li>
+            </ul>
           </footer>
         </div>
       </Router>

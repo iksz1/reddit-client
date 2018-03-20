@@ -4,6 +4,7 @@ import timeago from "timeago.js";
 
 export const MainPost = ({ post }) => {
   const time = timeago().format(post.created_utc * 1000);
+
   return (
     <div className="ui segment main-post">
       <h4 className="post-title">
@@ -15,9 +16,7 @@ export const MainPost = ({ post }) => {
         by <strong>{post.author}</strong> {time}
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.selftext_html }} />
-      {post.media_embed && (
-        <div dangerouslySetInnerHTML={{ __html: post.media_embed.content }} />
-      )}
+      {post.media_embed && <div dangerouslySetInnerHTML={{ __html: post.media_embed.content }} />}
     </div>
   );
 };

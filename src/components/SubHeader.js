@@ -13,7 +13,7 @@ export const SubHeader = ({ name, loading, onSubClick }) => {
       </div>
       <div>
         <h4>
-          <Icon name="empty star" onClick={onSubClick} />
+          <Icon name="empty star" onClick={onSubClick} className="ihover" />
         </h4>
       </div>
     </div>

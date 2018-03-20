@@ -42,7 +42,7 @@ footer {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   height: 50px;
   margin-bottom: 30px;
   margin-top: 10px;
@@ -52,9 +52,17 @@ footer {
   border-radius: 0 0 10px 10px;
   color: #767676;
 }
+nav {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 500;
+  bottom: calc(-2.5em / 2 - 10px);
+  background: #dadada;
+  border-radius: 0.3125em;
+}
 .settings-btn {
   width: 30px;
-  height: 30px;
+  height: 20px;
   /* margin-top: 10px;
   margin-right: 10px; */
   /* font-size: 1.5rem; */
@@ -93,8 +101,8 @@ b {
   padding: 2px 5px;
   border-radius: 500px;
 }
-.ui.search .prompt {
-  border-radius: 0.285rem;
+.ihover:hover {
+  color: indigo;
 }
 .ui.segment {
   box-shadow: none;

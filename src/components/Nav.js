@@ -4,17 +4,20 @@ import PropTypes from "prop-types";
 import "./Nav.css";
 
 export const Nav = ({ items, active, handleClick }) => (
-  <ul className="nice-menu">
-    {items.map(item => (
-      <li
-        key={item.name}
-        className={`nice-item ${item.name === active ? "active" : ""}`}
-        onClick={() => handleClick(item.name)}
-      >
-        {item.text}
-      </li>
-    ))}
-  </ul>
+  <nav>
+    <ul className="nice-menu">
+      {items.map(item => (
+        <li
+          key={item.name}
+          className={item.name === active ? "active" : ""}
+          // className={`nice-item ${item.name === active ? "active" : ""}`}
+          onClick={() => handleClick(item.name)}
+        >
+          {item.text}
+        </li>
+      ))}
+    </ul>
+  </nav>
 );
 
 Nav.propTypes = {

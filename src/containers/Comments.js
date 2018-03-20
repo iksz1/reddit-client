@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { Comment } from "../components/Comment";
 import { MainPost } from "../components/MainPost";
 import { connect } from "react-redux";
-import Icon from "semantic-ui-react/dist/es/elements/Icon";
+// import Icon from "semantic-ui-react/dist/es/elements/Icon";
+import Loader from "semantic-ui-react/dist/es/elements/Loader";
 
 class Comments extends Component {
   static propTypes = {
@@ -19,9 +20,10 @@ class Comments extends Component {
 
   render() {
     const { data, isLoading } = this.props;
+
     return (
       <div style={{ marginTop: "2rem" }}>
-        {isLoading && <Icon name="spinner" size="huge" loading />}
+        <Loader active={isLoading} size="big" />
         {data && data.post && <MainPost post={data.post} />}
         {data &&
           data.comments &&

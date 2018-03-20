@@ -25,6 +25,7 @@ class Post extends Component {
     const { post, onClickComments } = this.props;
     const { expanded } = this.state;
     const time = timeago().format(post.created_utc * 1000);
+
     return (
       <div className="post">
         <h4 className="post-title">

@@ -3,33 +3,34 @@
   display: flex;
   padding: 2px;
   margin: 0;
-  background: #dadada;
-  border-radius: 0.3125em;
+  /* background: #dadada; */
+  /* border-radius: 0.3125em; */
   cursor: default;
-  position: absolute;
+  /* position: absolute;
   font-size: 1.2rem;
   font-weight: 500;
-  bottom: calc(-2.5em / 2 - 10px);
+  bottom: calc(-2.5em / 2 - 10px); */
   /* transform-origin: 0 50%; */
   /* transform: scale(0.7); */
 }
-.nice-item {
+.nice-menu li {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0.16em;
   width: 2.5em;
   height: 2.5em;
+  /* border: 0.3125em solid #767676; */
   border: 0.3125em solid #e2e2e2;
   border-radius: 0.3125em;
   background: #767676;
   color: #fff;
-  box-shadow: 1px 1px 1px #767676;
+  /* box-shadow: 1px 1px 1px #767676; */
 }
-.nice-item:hover {
+.nice-menu li:hover {
   color: #ecb8b8;
 }
-.nice-menu .active {
+.nice-menu li.active {
   /* color: #9ebfdf; */
   color: #ecb8b8;
 }

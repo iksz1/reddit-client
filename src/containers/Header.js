@@ -13,7 +13,6 @@ class Header extends Component {
 
   historyPush = subreddit => {
     const { history, active } = this.props;
-    //prevent pushing same url
     if (subreddit !== active) {
       history.push(`/r/${subreddit}`);
     }
@@ -21,12 +20,11 @@ class Header extends Component {
 
   render() {
     const { items, active } = this.props;
+
     return (
       <header>
         <Nav items={items} active={active} handleClick={this.historyPush} />
-        <div className="settings-btn">
-          <SearchPopup />
-        </div>
+        <SearchPopup />
       </header>
     );
   }
