@@ -3,15 +3,7 @@
   display: flex;
   padding: 2px;
   margin: 0;
-  /* background: #dadada; */
-  /* border-radius: 0.3125em; */
   cursor: default;
-  /* position: absolute;
-  font-size: 1.2rem;
-  font-weight: 500;
-  bottom: calc(-2.5em / 2 - 10px); */
-  /* transform-origin: 0 50%; */
-  /* transform: scale(0.7); */
 }
 .nice-menu li {
   display: flex;
@@ -20,7 +12,6 @@
   margin: 0.16em;
   width: 2.5em;
   height: 2.5em;
-  /* border: 0.3125em solid #767676; */
   border: 0.3125em solid #e2e2e2;
   border-radius: 0.3125em;
   background: #767676;

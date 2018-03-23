@@ -1,5 +1,5 @@
 export const subsPersist = store => next => action => {
-  if (action.type !== "TOGGLE_SUBS") return next(action);
+  if (action.type !== "TOGGLE_SUB") return next(action);
   next(action);
   try {
     localStorage.setItem("subs", JSON.stringify(store.getState().nav.items));

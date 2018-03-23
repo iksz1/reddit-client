@@ -1,5 +1,6 @@
-### Mir - simple reddit client
+### MiR - simple reddit client
 
-**URL:** [https://mir.netlify.com/](https://mir.netlify.com/)<br>
-**Features:** original design, easy to use<br>
-**Built with:** CRA, Redux, semantic-ui<br>
+Built with CRA, Redux, semantic-ui-react.<br>
+Designed to look clean and original.
+
+Demo: [https://mir.netlify.com/](https://mir.netlify.com/)<br>

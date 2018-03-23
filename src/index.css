@@ -59,6 +59,9 @@ nav {
   bottom: calc(-2.5em / 2 - 10px);
   background: #dadada;
   border-radius: 0.3125em;
+  /* width: 100%;
+  overflow: scroll;
+  overflow-y: hidden; */
 }
 .settings-btn {
   width: 30px;
@@ -70,6 +73,10 @@ nav {
   top: 0;
   right: 0;
   color: rgba(118, 118, 118, 0.5);
+}
+.settings-btn:hover {
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 strong,
 b {
@@ -106,6 +113,9 @@ b {
 }
 .ui.segment {
   box-shadow: none;
+}
+.ui.dimmer {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .ui.container {
   display: flex;

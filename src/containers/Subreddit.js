@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Post from "../components/Post";
-import { SubHeader } from "../components/SubHeader";
-// import Icon from "semantic-ui-react/dist/es/elements/Icon";
+import Icon from "semantic-ui-react/dist/es/elements/Icon";
 
 class Subreddit extends Component {
   static propTypes = {
@@ -37,11 +36,6 @@ class Subreddit extends Component {
     dispatch({ type: "FETCH", url });
   }
 
-  toggleSubs = () => {
-    const { match, dispatch } = this.props;
-    dispatch({ type: "TOGGLE_SUBS", subreddit: match.params.subreddit });
-  };
-
   showComments = (e, url) => {
     e.preventDefault();
     this.props.history.push(url);
@@ -52,11 +46,12 @@ class Subreddit extends Component {
 
     return (
       <div style={{ marginTop: "2rem" }}>
-        <SubHeader
-          name={match.params.subreddit.toUpperCase()}
-          loading={isLoading}
-          onSubClick={this.toggleSubs}
-        />
+        <div className="ui attached secondary segment">
+          <h4>
+            {match.params.subreddit.toUpperCase()}&nbsp;
+            {isLoading && <Icon name="circle notched" loading />}
+          </h4>
+        </div>
         <div className="ui attached segment">
           {data &&
             data.posts &&
