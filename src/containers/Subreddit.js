@@ -17,9 +17,9 @@ class Subreddit extends Component {
     this.fetchData(this.props.match.params.subreddit);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const subreddit = nextProps.match.params.subreddit;
-    if (subreddit !== this.props.match.params.subreddit) {
+  componentDidUpdate(prevProps, prevState) {
+    const subreddit = this.props.match.params.subreddit;
+    if (subreddit !== prevProps.match.params.subreddit) {
       this.fetchData(subreddit);
     }
   }
