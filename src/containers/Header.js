@@ -18,10 +18,6 @@ class Header extends Component {
     }
   };
 
-  // openModal = () => {
-  //   this.setState({ open: true });
-  // };
-
   toggleSub = subreddit => {
     const { dispatch } = this.props;
     dispatch({ type: "TOGGLE_SUB", subreddit });
@@ -34,9 +30,6 @@ class Header extends Component {
       <header>
         <Nav items={items} active={active} handleClick={this.historyPush} />
         <SubsModal items={items} handleAction={this.toggleSub} />
-        {/* <div className="settings-btn" onClick={this.openSettings}>
-          <Icon size="large" name="ellipsis horizontal" fitted />
-        </div> */}
       </header>
     );
   }

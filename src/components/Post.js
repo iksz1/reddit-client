@@ -6,7 +6,7 @@ import timeago from "timeago.js";
 class Post extends Component {
   static propTypes = {
     post: PropTypes.object.isRequired,
-    onClickComments: PropTypes.func.isRequired
+    showComments: PropTypes.func.isRequired
   };
 
   state = {
@@ -17,12 +17,12 @@ class Post extends Component {
     const { post } = this.props;
     if (post.is_self) {
       e.preventDefault();
-      this.setState({ expanded: !this.state.expanded });
+      this.setState(prevState => ({ expanded: !prevState.expanded }));
     }
   };
 
   render() {
-    const { post, onClickComments } = this.props;
+    const { post, showComments } = this.props;
     const { expanded } = this.state;
     const time = timeago().format(post.created_utc * 1000);
 
@@ -39,7 +39,7 @@ class Post extends Component {
         />
         <div className="post-info">
           {post.score} <Icon name="thumbs outline up" /> by <b>{post.author}</b> {time}
-          <a href={post.permalink} onClick={onClickComments}>
+          <a href={post.permalink} onClick={showComments}>
             &nbsp;&nbsp;{post.num_comments || ""} <Icon name="comment outline" />
           </a>
         </div>

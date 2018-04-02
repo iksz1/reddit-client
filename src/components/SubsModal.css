@@ -1,0 +1,12 @@
+.subs-modal {
+  padding: 1em;
+}
+.subs-list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding: 0;
+}
+.subs-list li {
+  margin: 0.5em 0.2em;
+}

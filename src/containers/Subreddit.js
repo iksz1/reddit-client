@@ -13,7 +13,7 @@ class Subreddit extends Component {
     match: PropTypes.object.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchData(this.props.match.params.subreddit);
   }
 
@@ -45,7 +45,7 @@ class Subreddit extends Component {
     const { data, isLoading, match } = this.props;
 
     return (
-      <div style={{ marginTop: "2rem" }}>
+      <div className="content-block">
         <div className="ui attached secondary segment">
           <h4>
             {match.params.subreddit.toUpperCase()}&nbsp;
@@ -59,7 +59,7 @@ class Subreddit extends Component {
               <Post
                 key={post.id}
                 post={post}
-                onClickComments={e => this.showComments(e, post.permalink)}
+                showComments={e => this.showComments(e, post.permalink)}
               />
             ))}
         </div>

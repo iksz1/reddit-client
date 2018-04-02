@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Comment } from "../components/Comment";
 import { MainPost } from "../components/MainPost";
 import { connect } from "react-redux";
-// import Icon from "semantic-ui-react/dist/es/elements/Icon";
 import Loader from "semantic-ui-react/dist/es/elements/Loader";
 
 class Comments extends Component {
@@ -14,7 +13,7 @@ class Comments extends Component {
     location: PropTypes.object.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchData();
   }
 
@@ -22,7 +21,7 @@ class Comments extends Component {
     const { data, isLoading } = this.props;
 
     return (
-      <div style={{ marginTop: "2rem" }}>
+      <div className="content-block">
         <Loader active={isLoading} size="big" />
         {data && data.post && <MainPost post={data.post} />}
         {data &&

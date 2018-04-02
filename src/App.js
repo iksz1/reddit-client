@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Header from "./containers/Header";
 import Subreddit from "./containers/Subreddit";
 import Comments from "./containers/Comments";
-import { Home } from "./components/Home";
 
 class App extends Component {
   render() {
@@ -13,18 +12,12 @@ class App extends Component {
           <Route component={Header} />
           <div className="main-content">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Redirect exact from="/" to="/r/javascript" />
               <Route exact path="/r/:subreddit" component={Subreddit} />
               <Route path="/r/:subreddit/comments/:postId" component={Comments} />
             </Switch>
           </div>
-          <footer>
-            <ul className="nice-menu">
-              <li>M</li>
-              <li>i</li>
-              <li>R</li>
-            </ul>
-          </footer>
+          <footer />
         </div>
       </Router>
     );

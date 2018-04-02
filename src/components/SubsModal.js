@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import Modal from "semantic-ui-react/dist/es/modules/Modal";
 import Icon from "semantic-ui-react/dist/es/elements/Icon";
 import Label from "semantic-ui-react/dist/es/elements/Label";
-// import Segment from "semantic-ui-react/dist/es/elements/Segment";
 import SubsInput from "./SubsInput";
-// import Input from "semantic-ui-react/dist/es/elements/Input";
+import "./SubsModal.css";
 
 const trigger = (
   <div className="settings-btn">
@@ -18,12 +17,12 @@ const SubsModal = ({ items, handleAction }) => (
     trigger={trigger}
     // header="Add Subreddit"
     content={
-      <div style={{ padding: "1em" }}>
+      <div className="subs-modal">
         <SubsInput handleAction={handleAction} />
         <div className="ui divider" />
-        <ul style={{ listStyle: "none", display: "flex", flexFlow: "row wrap", padding: 0 }}>
+        <ul className="subs-list">
           {items.map(item => (
-            <li style={{ margin: "0.5em 0.2em" }}>
+            <li key={item.name}>
               <Label content={item.name} onRemove={() => handleAction(item.name)} />
             </li>
           ))}
@@ -31,8 +30,6 @@ const SubsModal = ({ items, handleAction }) => (
       </div>
     }
     closeIcon={true}
-    // actions={["Cancel", { key: "ok", content: "OK", positive: true }]}
-    // onActionClick={(e, data) => console.log(data)}
     size="mini"
   />
 );

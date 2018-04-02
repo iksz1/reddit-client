@@ -59,16 +59,13 @@ nav {
   bottom: calc(-2.5em / 2 - 10px);
   background: #dadada;
   border-radius: 0.3125em;
-  /* width: 100%;
-  overflow: scroll;
-  overflow-y: hidden; */
+}
+.content-block {
+  margin-top: 2rem;
 }
 .settings-btn {
   width: 30px;
   height: 20px;
-  /* margin-top: 10px;
-  margin-right: 10px; */
-  /* font-size: 1.5rem; */
   position: absolute;
   top: 0;
   right: 0;
@@ -107,9 +104,6 @@ b {
   font-size: 0.8rem;
   padding: 2px 5px;
   border-radius: 500px;
-}
-.ihover:hover {
-  color: indigo;
 }
 .ui.segment {
   box-shadow: none;

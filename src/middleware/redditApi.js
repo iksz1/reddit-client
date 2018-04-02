@@ -13,6 +13,7 @@ export const redditApi = store => next => action => {
   } else {
     url = `${BASE_URL + url}?${BASE_PARAMS}`;
   }
+
   return fetch(url)
     .then(response => {
       if (response.ok) {
