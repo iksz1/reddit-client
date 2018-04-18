@@ -25,3 +25,6 @@
   /* color: #9ebfdf; */
   color: #ecb8b8;
 }
+.nice-menu li.round {
+  border-radius: 50%;
+}

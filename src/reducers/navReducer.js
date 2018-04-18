@@ -1,13 +1,18 @@
+import ucf from "../utils/upperCaseFinder";
+
 export const navReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ACTIVE_REDDIT":
       return { ...state, active: action.item.toLowerCase() };
     case "TOGGLE_SUB":
       const subs = state.items;
-      const subreddit = action.subreddit.toLowerCase();
-      let items = subs.filter(sub => sub.name !== subreddit);
+      const subreddit = action.subreddit;
+      const mask = subreddit.toLowerCase();
+
+      let items = subs.filter(sub => sub.name !== mask);
       if (items.length === subs.length) {
-        items.push({ name: subreddit, text: subreddit.charAt().toUpperCase() });
+        const text = ucf(subreddit) || subreddit.charAt().toUpperCase();
+        items.push({ name: mask, text });
       }
       if (items.length > 0) return { ...state, items };
       return state;

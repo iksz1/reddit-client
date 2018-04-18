@@ -5,8 +5,9 @@ const BASE_PARAMS = "raw_json=1";
 
 export const redditApi = store => next => action => {
   if (action.type !== "FETCH") return next(action);
-  // const url = `r/${subreddit}/?${params}`;
+
   next(action);
+
   let { url } = action;
   if (url.indexOf("?") >= 0) {
     url = `${BASE_URL + url}&${BASE_PARAMS}`;

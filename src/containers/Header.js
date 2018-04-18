@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Nav } from "../components/Nav";
-import SubsModal from "../components/SubsModal";
+import { Nav } from "../components/Nav/Nav";
+import SubsModal from "../components/SubsModal/SubsModal";
 
 class Header extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
     history: PropTypes.object.isRequired,
-    active: PropTypes.string
+    active: PropTypes.string,
+    dispatch: PropTypes.func.isRequired
   };
 
   historyPush = subreddit => {

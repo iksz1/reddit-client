@@ -1,7 +1,7 @@
 const DEFAULT_SUBS = [
   { name: "javascript", text: "J" },
   { name: "reactjs", text: "R" },
-  { name: "web_design", text: "W" }
+  { name: "webdev", text: "W" }
 ];
 
 const loadSubs = () => {

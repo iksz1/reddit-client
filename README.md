@@ -1,4 +1,4 @@
-### MiR - simple reddit client
+## MiR - simple reddit client
 
 Built with CRA, Redux, semantic-ui-react.<br>
 Designed to look clean and original.

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Comment } from "../components/Comment";
+import { Comment } from "../components/Comment/Comment";
 import { MainPost } from "../components/MainPost";
 import { connect } from "react-redux";
 import Loader from "semantic-ui-react/dist/es/elements/Loader";

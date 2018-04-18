@@ -20,12 +20,13 @@ class SubsInput extends Component {
   render() {
     const { handleAction } = this.props;
     const { value } = this.state;
+    const disabled = value ? false : true;
 
     return (
       <div>
         <Input
           value={value}
-          action={{ content: "Add", onClick: () => handleAction(value) }}
+          action={{ content: "Add", onClick: () => handleAction(value), disabled }}
           placeholder="add subreddit"
           onChange={this.handleChange}
           maxLength="50"
