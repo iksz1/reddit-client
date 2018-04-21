@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Comment } from "../components/Comment/Comment";
 import { MainPost } from "../components/MainPost";
 import { connect } from "react-redux";
+import { FetchError } from "../components/FetchError";
 import Loader from "semantic-ui-react/dist/es/elements/Loader";
 
 class Comments extends Component {
@@ -18,14 +19,14 @@ class Comments extends Component {
   }
 
   render() {
-    const { data, isLoading } = this.props;
+    const { data, isLoading, error } = this.props;
 
     return (
-      <div className="content-block">
+      <React.Fragment>
         <Loader active={isLoading} size="big" />
-        {data && data.post && <MainPost post={data.post} />}
-        {data &&
-          data.comments &&
+        {error && <FetchError error={error} />}
+        {data.post && <MainPost post={data.post} />}
+        {data.comments &&
           data.comments.map((level, i) => {
             return (
               <div key={i} className="ui segment">
@@ -33,7 +34,7 @@ class Comments extends Component {
               </div>
             );
           })}
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -47,6 +48,7 @@ class Comments extends Component {
 const mapState = state => {
   return {
     data: state.fetch.data,
+    error: state.fetch.error,
     isLoading: state.fetch.isLoading
   };
 };

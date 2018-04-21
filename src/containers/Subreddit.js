@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Post from "../components/Post";
 import Icon from "semantic-ui-react/dist/es/elements/Icon";
+import { FetchError } from "../components/FetchError";
 
 class Subreddit extends Component {
   static propTypes = {
@@ -42,10 +43,10 @@ class Subreddit extends Component {
   };
 
   render() {
-    const { data, isLoading, match } = this.props;
+    const { data, isLoading, match, error } = this.props;
 
     return (
-      <div className="content-block">
+      <React.Fragment>
         <div className="ui attached secondary segment">
           <h4>
             {match.params.subreddit.toUpperCase()}&nbsp;
@@ -53,8 +54,8 @@ class Subreddit extends Component {
           </h4>
         </div>
         <div className="ui attached segment">
-          {data &&
-            data.posts &&
+          {error && <FetchError error={error} />}
+          {data.posts &&
             data.posts.map(post => (
               <Post
                 key={post.id}
@@ -63,7 +64,7 @@ class Subreddit extends Component {
               />
             ))}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
@@ -71,6 +72,7 @@ class Subreddit extends Component {
 const mapState = state => {
   return {
     data: state.fetch.data,
+    error: state.fetch.error,
     isLoading: state.fetch.isLoading
   };
 };

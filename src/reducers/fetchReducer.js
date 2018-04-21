@@ -1,12 +1,12 @@
-export const fetchReducer = (state = {}, action) => {
+export const fetchReducer = (state = { data: {} }, action) => {
   switch (action.type) {
     case "FETCH":
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     case "FETCH_SUCCESS":
-      return { data: action.data, isLoading: false }
+      return { data: action.data, isLoading: false };
     case "FETCH_ERROR":
-      return { error: action.error, isLoading: false }
+      return { data: {}, error: action.error, isLoading: false };
     default:
       return state;
   }
-}
+};

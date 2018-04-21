@@ -21,7 +21,7 @@ h4 {
 .main-content {
   flex: 1;
   margin: 0;
-  padding: 30px 20px;
+  padding: 3.875rem 1.25rem 1.875rem 1.25rem;
   border-left: 10px solid #fff;
   border-right: 10px solid #fff;
   background: #f9f9f9;
@@ -30,7 +30,7 @@ header {
   height: 50px;
   margin-top: 30px;
   margin-bottom: 10px;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   background: #f9f9f9;
   border: 10px solid #fff;
   border-bottom: none;
@@ -59,9 +59,6 @@ nav {
   bottom: calc(-2.5em / 2 - 10px);
   background: #dadada;
   border-radius: 0.3125em;
-}
-.content-block {
-  margin-top: 2rem;
 }
 .settings-btn {
   width: 30px;
@@ -120,9 +117,9 @@ b {
 
 @media screen and (max-width: 568px) {
   .main-content {
-    padding: 30px 10px;
+    padding: 3.875rem 0.625rem 1.875rem 0.625rem;
   }
   header {
-    padding: 0 10px;
+    padding: 0 0.625rem;
   }
 }
