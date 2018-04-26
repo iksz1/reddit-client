@@ -7,9 +7,9 @@ import SubsInput from "./SubsInput";
 import "./SubsModal.css";
 
 const trigger = (
-  <div className="settings-btn">
+  <button className="settings-btn" aria-label="Settings" type="button">
     <Icon size="large" name="ellipsis horizontal" fitted />
-  </div>
+  </button>
 );
 
 const SubsModal = ({ items, handleAction }) => (
@@ -31,6 +31,8 @@ const SubsModal = ({ items, handleAction }) => (
     }
     closeIcon={true}
     size="mini"
+    role="dialog"
+    aria-label="Manage Subreddits"
   />
 );
 

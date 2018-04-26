@@ -24,12 +24,24 @@ class Header extends Component {
     dispatch({ type: "TOGGLE_SUB", subreddit });
   };
 
+  handleKeyPress = (e, subreddit) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      this.historyPush(subreddit);
+    }
+  };
+
   render() {
     const { items, active } = this.props;
 
     return (
       <header>
-        <Nav items={items} active={active} handleClick={this.historyPush} />
+        <Nav
+          items={items}
+          active={active}
+          handleClick={this.historyPush}
+          handleKeyPress={this.handleKeyPress}
+        />
         <SubsModal items={items} handleAction={this.toggleSub} />
       </header>
     );

@@ -11,7 +11,7 @@ export const navReducer = (state = {}, action) => {
 
       let items = subs.filter(sub => sub.name !== mask);
       if (items.length === subs.length) {
-        const text = ucf(subreddit) || subreddit.charAt().toUpperCase();
+        const text = ucf(subreddit) || subreddit[0].toUpperCase();
         items.push({ name: mask, text });
       }
       if (items.length > 0) return { ...state, items };

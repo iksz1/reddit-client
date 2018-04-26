@@ -2,14 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Nav.css";
 
-export const Nav = ({ items, active, handleClick }) => (
+export const Nav = ({ items, active, handleClick, handleKeyPress }) => (
   <nav>
-    <ul className="nice-menu">
+    <ul className="nice-menu" role="menu">
       {items.map(item => (
         <li
           key={item.name}
+          tabIndex="0"
           className={item.name === active ? "active" : ""}
           onClick={() => handleClick(item.name)}
+          onKeyPress={e => handleKeyPress(e, item.name)}
+          role="menuitem"
+          aria-label={item.name}
         >
           {item.text}
         </li>

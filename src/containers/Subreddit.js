@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Post from "../components/Post";
@@ -46,7 +46,7 @@ class Subreddit extends Component {
     const { data, isLoading, match, error } = this.props;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="ui attached secondary segment">
           <h4>
             {match.params.subreddit.toUpperCase()}&nbsp;
@@ -64,7 +64,7 @@ class Subreddit extends Component {
               />
             ))}
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

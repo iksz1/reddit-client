@@ -4,22 +4,35 @@ exports[`renders correctly 1`] = `
 <nav>
   <ul
     className="nice-menu"
+    role="menu"
   >
     <li
+      aria-label="javascript"
       className="active"
       onClick={[Function]}
+      onKeyPress={[Function]}
+      role="menuitem"
+      tabIndex="0"
     >
       J
     </li>
     <li
+      aria-label="reactjs"
       className=""
       onClick={[Function]}
+      onKeyPress={[Function]}
+      role="menuitem"
+      tabIndex="0"
     >
       R
     </li>
     <li
+      aria-label="webdev"
       className=""
       onClick={[Function]}
+      onKeyPress={[Function]}
+      role="menuitem"
+      tabIndex="0"
     >
       W
     </li>

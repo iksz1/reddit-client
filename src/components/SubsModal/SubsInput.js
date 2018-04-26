@@ -31,6 +31,8 @@ class SubsInput extends Component {
           onChange={this.handleChange}
           maxLength="50"
           size="mini"
+          ref={el => el && el.focus()}
+          aria-label="Add Subreddit"
           // fluid
         />
       </div>
