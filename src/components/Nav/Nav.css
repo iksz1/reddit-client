@@ -20,10 +20,12 @@
 }
 .nice-menu li:hover {
   color: #ecb8b8;
+  outline: none;
 }
 .nice-menu li.active {
   /* color: #9ebfdf; */
   color: #ecb8b8;
+  outline: none;
 }
 .nice-menu li.round {
   border-radius: 50%;

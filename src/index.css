@@ -73,6 +73,7 @@ nav {
 .settings-btn:hover {
   cursor: pointer;
   font-size: 1.2rem;
+  outline: none;
 }
 strong,
 b {

@@ -8,7 +8,7 @@ export const Nav = ({ items, active, handleClick, handleKeyPress }) => (
       {items.map(item => (
         <li
           key={item.name}
-          tabIndex="0"
+          tabIndex={item.name === active ? -1 : 0}
           className={item.name === active ? "active" : ""}
           onClick={() => handleClick(item.name)}
           onKeyPress={e => handleKeyPress(e, item.name)}
