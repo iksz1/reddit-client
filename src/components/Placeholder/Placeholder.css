@@ -1,0 +1,22 @@
+.m-placeholder {
+  animation: pulse 1s infinite ease-in-out;
+}
+.ph-line {
+  height: 1rem;
+  width: 75%;
+  margin: 10px 0;
+  background: #eee;
+}
+.ph-line:nth-child(even) {
+  height: 0.9rem;
+  width: 60%;
+  margin-bottom: 30px;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

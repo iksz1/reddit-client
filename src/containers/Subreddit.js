@@ -1,13 +1,16 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Post from "../components/Post";
+import Post from "../components/Post/Post";
 import Icon from "semantic-ui-react/dist/es/elements/Icon";
-import { FetchError } from "../components/FetchError";
+import { FetchError } from "../components/FetchError/FetchError";
+import { Placeholder } from "../components/Placeholder/Placeholder";
+import { selectPosts } from "../selectors";
+import { fetchPosts } from "../actions";
 
 class Subreddit extends Component {
   static propTypes = {
-    data: PropTypes.object,
+    posts: PropTypes.array,
     isLoading: PropTypes.bool,
     dispatch: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired,
@@ -25,16 +28,9 @@ class Subreddit extends Component {
     }
   }
 
-  componentWillUnmount() {
-    const { dispatch } = this.props;
-    dispatch({ type: "SET_ACTIVE_REDDIT", item: "" });
-  }
-
   fetchData(subreddit) {
     const { dispatch } = this.props;
-    dispatch({ type: "SET_ACTIVE_REDDIT", item: subreddit });
-    const url = `/r/${subreddit}.json`;
-    dispatch({ type: "FETCH", url });
+    dispatch(fetchPosts(subreddit));
   }
 
   showComments = (e, url) => {
@@ -43,7 +39,7 @@ class Subreddit extends Component {
   };
 
   render() {
-    const { data, isLoading, match, error } = this.props;
+    const { posts, isLoading, match, error } = this.props;
 
     return (
       <Fragment>
@@ -54,14 +50,11 @@ class Subreddit extends Component {
           </h4>
         </div>
         <div className="ui attached segment">
+          {isLoading && <Placeholder />}
           {error && <FetchError error={error} />}
-          {data.posts &&
-            data.posts.map(post => (
-              <Post
-                key={post.id}
-                post={post}
-                showComments={e => this.showComments(e, post.permalink)}
-              />
+          {posts &&
+            posts.map(post => (
+              <Post key={post.id} post={post} showComments={e => this.showComments(e, post.permalink)} />
             ))}
         </div>
       </Fragment>
@@ -69,11 +62,11 @@ class Subreddit extends Component {
   }
 }
 
-const mapState = state => {
+const mapState = (state, { match }) => {
   return {
-    data: state.fetch.data,
-    error: state.fetch.error,
-    isLoading: state.fetch.isLoading
+    posts: selectPosts(state, match.params.subreddit),
+    error: state.posts.error,
+    isLoading: state.posts.isLoading
   };
 };
 

@@ -12,7 +12,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
       onKeyPress={[Function]}
       role="menuitem"
-      tabIndex="0"
+      tabIndex={-1}
     >
       J
     </li>
@@ -22,7 +22,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
       onKeyPress={[Function]}
       role="menuitem"
-      tabIndex="0"
+      tabIndex={0}
     >
       R
     </li>
@@ -32,7 +32,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
       onKeyPress={[Function]}
       role="menuitem"
-      tabIndex="0"
+      tabIndex={0}
     >
       W
     </li>

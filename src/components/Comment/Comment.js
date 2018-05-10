@@ -6,8 +6,8 @@ export const Comment = ({ cmt }) => {
   return (
     <div className="comment" style={{ marginLeft: `${cmt.depth}rem` }}>
       <div>
-        <strong>{cmt.author}</strong>
-        <span className="post-score">{cmt.score}</span>
+        <span className="comment-author">{cmt.author}</span>
+        <span className="comment-score">{cmt.score}</span>
       </div>
       <div dangerouslySetInnerHTML={{ __html: cmt.body_html }} />
     </div>

@@ -29,7 +29,7 @@ class Post extends Component {
     return (
       <div className="post">
         <h4 className="post-title">
-          <a href={post.url} target="_blank" onClick={this.toggleExpanded}>
+          <a href={post.url} target="_blank" onClick={this.toggleExpanded} rel="noopener">
             {post.title}
           </a>
         </h4>

@@ -1,6 +1,8 @@
-/* html {
-  font-size: 100%;
-} */
+html {
+  /* font-size: 15px; */
+  /* width: 100vw; */
+  /* margin-left: calc(100vw - 100%); */
+}
 body {
   margin: 0;
   padding: 0;
@@ -21,6 +23,7 @@ h4 {
 .main-content {
   flex: auto;
   margin: 0;
+  font-size: 15px;
   padding: 3.875rem 1.25rem 1.875rem 1.25rem;
   border-left: 10px solid #fff;
   border-right: 10px solid #fff;
@@ -79,6 +82,11 @@ strong,
 b {
   font-weight: 500;
 }
+.main-post:not(:last-child) {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d5d5d5;
+}
 .main-post pre {
   white-space: pre-wrap;
 }
@@ -97,14 +105,6 @@ b {
 .post-title a:hover {
   color: indianred;
 }
-.post-score {
-  margin: 0 0.5em;
-  line-height: 1;
-  background: #e8e8e8;
-  font-size: 0.8rem;
-  padding: 2px 5px;
-  border-radius: 500px;
-}
 .ui.segment {
   box-shadow: none;
 }
@@ -116,6 +116,11 @@ b {
   flex-flow: column;
   min-height: 100vh;
   overflow: hidden;
+}
+.m-box {
+  background: #fff;
+  padding: 1em;
+  border: 1px solid #d5d5d5;
 }
 
 @media screen and (max-width: 568px) {

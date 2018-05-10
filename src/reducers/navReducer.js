@@ -1,20 +1,21 @@
 import ucf from "../utils/upperCaseFinder";
+import { NAV_SET_ACTIVE, NAV_TOGGLE_ITEM } from "../actions";
 
 export const navReducer = (state = {}, action) => {
   switch (action.type) {
-    case "SET_ACTIVE_REDDIT":
+    case NAV_SET_ACTIVE:
       return { ...state, active: action.item.toLowerCase() };
-    case "TOGGLE_SUB":
+    case NAV_TOGGLE_ITEM:
       const subs = state.items;
-      const subreddit = action.subreddit;
-      const mask = subreddit.toLowerCase();
+      const item = action.item;
+      const mask = item.toLowerCase();
 
       let items = subs.filter(sub => sub.name !== mask);
       if (items.length === subs.length) {
-        const text = ucf(subreddit) || subreddit[0].toUpperCase();
+        const text = ucf(item) || item[0].toUpperCase(); //letter to use for menu
         items.push({ name: mask, text });
       }
-      if (items.length > 0) return { ...state, items };
+      if (items.length > 0) return { ...state, items }; //at least 1 item must be present
       return state;
     default:
       return state;

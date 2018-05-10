@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Comment } from "../components/Comment/Comment";
-import { MainPost } from "../components/MainPost";
+import { MainPost } from "../components/MainPost/MainPost";
 import { connect } from "react-redux";
-import { FetchError } from "../components/FetchError";
+import { FetchError } from "../components/FetchError/FetchError";
 import Loader from "semantic-ui-react/dist/es/elements/Loader";
+import { selectMainPost } from "../selectors";
+import { fetchComments } from "../actions";
 
 class Comments extends Component {
   static propTypes = {
-    data: PropTypes.object,
+    post: PropTypes.object,
+    comments: PropTypes.array,
     isLoading: PropTypes.bool,
     dispatch: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired
   };
 
   componentDidMount() {
@@ -19,37 +22,38 @@ class Comments extends Component {
   }
 
   render() {
-    const { data, isLoading, error } = this.props;
+    const { post, comments, isLoading, error } = this.props;
 
     return (
-      <React.Fragment>
+      <div className="m-box">
         <Loader active={isLoading} size="big" />
+        {post && <MainPost post={post} />}
         {error && <FetchError error={error} />}
-        {data.post && <MainPost post={data.post} />}
-        {data.comments &&
-          data.comments.map((level, i) => {
+        {comments &&
+          comments.map((level, i) => {
             return (
-              <div key={i} className="ui segment">
+              <div key={i} className="comment-block">
                 {level.map(cmt => <Comment key={cmt.id} cmt={cmt} />)}
               </div>
             );
           })}
-      </React.Fragment>
+      </div>
     );
   }
 
   fetchData() {
-    const { dispatch, location } = this.props;
-    const url = `${location.pathname}.json${location.search}`;
-    dispatch({ type: "FETCH", url });
+    const { dispatch, match } = this.props;
+    const { subreddit, postId } = match.params;
+    dispatch(fetchComments(subreddit, postId));
   }
 }
 
-const mapState = state => {
+const mapState = (state, { match }) => {
   return {
-    data: state.fetch.data,
-    error: state.fetch.error,
-    isLoading: state.fetch.isLoading
+    post: selectMainPost(state, match.params),
+    comments: state.comments.data.comments,
+    error: state.comments.error,
+    isLoading: state.comments.isLoading
   };
 };
 

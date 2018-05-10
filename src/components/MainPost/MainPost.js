@@ -6,12 +6,12 @@ export const MainPost = ({ post }) => {
   const time = timeago().format(post.created_utc * 1000);
 
   return (
-    <div className="ui segment main-post">
-      <h4 className="post-title">
-        <a href={post.url} target="_blank">
+    <div className="main-post">
+      <h3 className="post-title">
+        <a href={post.url} target="_blank" rel="noopener">
           {post.title}
         </a>
-      </h4>
+      </h3>
       <div className="post-info">
         by <strong>{post.author}</strong> {time}
       </div>

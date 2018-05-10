@@ -6,16 +6,12 @@ import registerServiceWorker from "./registerServiceWorker";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers/rootReducer";
-import { redditApi } from "./middleware/redditApi";
+import { fetchMiddleware } from "./middleware/fetchMiddleware";
 import { subsPersist } from "./middleware/subsPersist";
 import { initStore } from "./store";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  reducer,
-  initStore,
-  composeEnhancers(applyMiddleware(redditApi, subsPersist))
-);
+const store = createStore(reducer, initStore, composeEnhancers(applyMiddleware(fetchMiddleware, subsPersist)));
 
 ReactDOM.render(
   <Provider store={store}>

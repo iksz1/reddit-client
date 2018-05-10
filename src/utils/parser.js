@@ -6,23 +6,22 @@ const parser = data => {
     result.meta = { after, before };
   } else {
     result.post = data[0].data.children[0].data;
-    // result.raw = data[1].data.children;
     result.comments = flatComments(data[1].data.children);
   }
   return result;
-}
+};
 
+//normalize comments
 const flatComments = comments => {
-  //if 0?
   let result = [];
   comments.forEach(({ data: cmt }) => {
     if (!cmt.children) {
-      const replies = getReplies(cmt);        
+      const replies = getReplies(cmt);
       result.push([cmt, ...replies]);
     }
   });
   return result;
-}
+};
 
 const getReplies = comment => {
   if (!comment.replies) {
@@ -38,6 +37,6 @@ const getReplies = comment => {
     }
   });
   return replies;
-}
+};
 
 export default parser;

@@ -1,5 +1,7 @@
+import { NAV_TOGGLE_ITEM } from "../actions";
+
 export const subsPersist = store => next => action => {
-  if (action.type !== "TOGGLE_SUB") return next(action);
+  if (action.type !== NAV_TOGGLE_ITEM) return next(action);
 
   next(action);
 

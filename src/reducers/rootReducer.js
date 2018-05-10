@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import { fetchReducer } from "./fetchReducer";
 import { navReducer } from "./navReducer";
+import { postsReducer } from "./postsReducer";
+import { commentsReducer } from "./commentsReducer";
 
 export default combineReducers({
-  fetch: fetchReducer,
-  nav: navReducer
+  nav: navReducer,
+  posts: postsReducer,
+  comments: commentsReducer
 });
