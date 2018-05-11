@@ -12,6 +12,7 @@ export const Nav = ({ items, active, handleClick, handleKeyPress }) => (
           className={item.name === active ? "active" : ""}
           onClick={() => handleClick(item.name)}
           onKeyPress={e => handleKeyPress(e, item.name)}
+          ref={el => el && item.name === active && el.focus()} //focus element on moving through browser history
           role="menuitem"
           aria-label={item.name}
         >

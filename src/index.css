@@ -1,16 +1,9 @@
-html {
-  /* font-size: 15px; */
-  /* width: 100vw; */
-  /* margin-left: calc(100vw - 100%); */
-}
 body {
   margin: 0;
   padding: 0;
   background: #dadada;
   color: #4c4c4c;
   font-family: "Roboto", sans-serif;
-  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
 }
 h1,
 h2,
@@ -63,47 +56,9 @@ nav {
   background: #dadada;
   border-radius: 0.3125em;
 }
-.settings-btn {
-  width: 30px;
-  height: 20px;
-  border: none;
-  background: none;
-  position: absolute;
-  top: 0;
-  right: 2px;
-  color: rgba(118, 118, 118, 0.5);
-}
-.settings-btn:hover {
-  cursor: pointer;
-  font-size: 1.2rem;
-  outline: none;
-}
 strong,
 b {
   font-weight: 500;
-}
-.main-post:not(:last-child) {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #d5d5d5;
-}
-.main-post pre {
-  white-space: pre-wrap;
-}
-.post {
-  max-width: 720px;
-  margin-bottom: 1rem;
-}
-.post-info {
-  color: #767676;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-.post-title a {
-  color: inherit;
-}
-.post-title a:hover {
-  color: indianred;
 }
 .ui.segment {
   box-shadow: none;
@@ -129,5 +84,12 @@ b {
   }
   header {
     padding: 0 0.625rem;
+  }
+}
+
+/* fix "jumping scrollbar" on bigger screens */
+@media screen and (min-width: 1024px) {
+  html {
+    margin-left: calc(100vw - 100%);
   }
 }

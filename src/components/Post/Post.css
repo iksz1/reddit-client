@@ -1,0 +1,15 @@
+.post {
+  max-width: 720px;
+  margin-bottom: 1rem;
+}
+.post__info {
+  color: #767676;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.post__title a {
+  color: inherit;
+}
+.post__title a:hover {
+  color: indianred;
+}

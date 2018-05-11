@@ -1,10 +1,8 @@
 import ucf from "../utils/upperCaseFinder";
-import { NAV_SET_ACTIVE, NAV_TOGGLE_ITEM } from "../actions";
+import { NAV_TOGGLE_ITEM } from "../actions";
 
 export const navReducer = (state = {}, action) => {
   switch (action.type) {
-    case NAV_SET_ACTIVE:
-      return { ...state, active: action.item.toLowerCase() };
     case NAV_TOGGLE_ITEM:
       const subs = state.items;
       const item = action.item;

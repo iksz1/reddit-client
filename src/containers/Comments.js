@@ -5,7 +5,7 @@ import { MainPost } from "../components/MainPost/MainPost";
 import { connect } from "react-redux";
 import { FetchError } from "../components/FetchError/FetchError";
 import Loader from "semantic-ui-react/dist/es/elements/Loader";
-import { selectMainPost } from "../selectors";
+import { getMainPost } from "../selectors";
 import { fetchComments } from "../actions";
 
 class Comments extends Component {
@@ -21,6 +21,12 @@ class Comments extends Component {
     this.fetchData();
   }
 
+  fetchData() {
+    const { dispatch, match } = this.props;
+    const { subreddit, postId } = match.params;
+    dispatch(fetchComments(subreddit, postId));
+  }
+  
   render() {
     const { post, comments, isLoading, error } = this.props;
 
@@ -40,21 +46,13 @@ class Comments extends Component {
       </div>
     );
   }
-
-  fetchData() {
-    const { dispatch, match } = this.props;
-    const { subreddit, postId } = match.params;
-    dispatch(fetchComments(subreddit, postId));
-  }
 }
 
-const mapState = (state, { match }) => {
-  return {
-    post: selectMainPost(state, match.params),
-    comments: state.comments.data.comments,
-    error: state.comments.error,
-    isLoading: state.comments.isLoading
-  };
-};
+const mapState = (state, { match }) => ({
+  post: getMainPost(state, match.params),
+  comments: state.comments.data.comments,
+  error: state.comments.error,
+  isLoading: state.comments.isLoading
+});
 
 export default connect(mapState)(Comments);

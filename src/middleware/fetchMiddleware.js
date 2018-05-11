@@ -1,12 +1,13 @@
 import parser from "../utils/parser";
-import { selectExpDate } from "../selectors";
+import { getCacheExpDate, getCachedData } from "../selectors";
 import {
   FETCH_POSTS,
   FETCH_COMMENTS,
   fetchPostsSuccess,
   fetchPostsError,
   fetchCommentsSuccess,
-  fetchCommentsError
+  fetchCommentsError,
+  cacheSet
 } from "../actions";
 
 const BASE_URL = "https://www.reddit.com";
@@ -25,20 +26,23 @@ export const fetchMiddleware = store => next => action => {
   if (action.type === FETCH_POSTS) {
     const { subreddit } = action;
 
-    //do nothing if cache is available
-    const expires = selectExpDate(store.getState(), subreddit);
-    if (expires && expires > Date.now()) return;
+    //return cached data if available
+    const expires = getCacheExpDate(store.getState(), subreddit);
+    if (expires && expires > Date.now()) {
+      const data = getCachedData(store.getState(), subreddit);
+      return next(fetchPostsSuccess(data));
+    }
 
     const url = `${BASE_URL}/r/${subreddit}/.json?${BASE_PARAMS}`;
 
     apiGet(url)
       .then(json => {
         const data = parser(json);
-        data.exp = Date.now() + 10 * 60 * 1000; //data valid for 10 minutes
-        return next(fetchPostsSuccess(data, subreddit));
+        next(cacheSet(subreddit, data)); //cache response
+        return next(fetchPostsSuccess(data));
       })
       .catch(error => {
-        return next(fetchPostsError(error, subreddit));
+        return next(fetchPostsError(error));
       });
   }
 

@@ -5,8 +5,8 @@ const count = 15;
 
 const Block = () => (
   <Fragment>
-    <div className="ph-line" />
-    <div className="ph-line" />
+    <div className="placeholder__line" />
+    <div className="placeholder__line" />
   </Fragment>
 );
 
@@ -17,5 +17,5 @@ export const Placeholder = () => {
     blocks.push(<Block key={i} />);
   }
 
-  return <div className="m-placeholder">{blocks}</div>;
+  return <div className="placeholder">{blocks}</div>;
 };

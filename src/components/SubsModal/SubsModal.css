@@ -1,12 +1,27 @@
 .subs-modal {
   padding: 1em;
 }
-.subs-list {
+.subs-modal__items {
   display: flex;
   flex-flow: row wrap;
   list-style: none;
   padding: 0;
 }
-.subs-list li {
+.subs-modal__items li {
   margin: 0.5em 0.2em;
+}
+.settings-btn {
+  width: 30px;
+  height: 20px;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 0;
+  right: 2px;
+  color: rgba(118, 118, 118, 0.5);
+}
+.settings-btn:hover {
+  cursor: pointer;
+  font-size: 1.2rem;
+  outline: none;
 }

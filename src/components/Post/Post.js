@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Icon from "semantic-ui-react/dist/es/elements/Icon";
 import timeago from "timeago.js";
+import "./Post.css";
 
 class Post extends Component {
   static propTypes = {
@@ -28,7 +29,7 @@ class Post extends Component {
 
     return (
       <div className="post">
-        <h4 className="post-title">
+        <h4 className="post__title">
           <a href={post.url} target="_blank" onClick={this.toggleExpanded} rel="noopener">
             {post.title}
           </a>
@@ -37,7 +38,7 @@ class Post extends Component {
           dangerouslySetInnerHTML={{ __html: post.selftext_html }}
           style={{ display: expanded ? "block" : "none" }}
         />
-        <div className="post-info">
+        <div className="post__info">
           {post.score} <Icon name="thumbs outline up" /> by <strong>{post.author}</strong> {time}
           <a href={post.permalink} onClick={showComments} aria-label="Comments">
             &nbsp;&nbsp;{post.num_comments || ""} <Icon name="comment outline" />

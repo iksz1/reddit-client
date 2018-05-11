@@ -20,7 +20,7 @@ const SubsModal = ({ items, handleAction }) => (
       <div className="subs-modal">
         <SubsInput handleAction={handleAction} />
         <div className="ui divider" />
-        <ul className="subs-list">
+        <ul className="subs-modal__items">
           {items.map(item => (
             <li key={item.name}>
               <Label content={item.name} onRemove={() => handleAction(item.name)} />

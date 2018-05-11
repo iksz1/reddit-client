@@ -1,13 +1,13 @@
-.m-placeholder {
+.placeholder {
   animation: pulse 1s infinite ease-in-out;
 }
-.ph-line {
+.placeholder__line {
   height: 1rem;
   width: 75%;
   margin: 10px 0;
   background: #eee;
 }
-.ph-line:nth-child(even) {
+.placeholder__line:nth-child(even) {
   height: 0.9rem;
   width: 60%;
   margin-bottom: 30px;

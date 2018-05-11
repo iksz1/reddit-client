@@ -5,7 +5,6 @@ import Post from "../components/Post/Post";
 import Icon from "semantic-ui-react/dist/es/elements/Icon";
 import { FetchError } from "../components/FetchError/FetchError";
 import { Placeholder } from "../components/Placeholder/Placeholder";
-import { selectPosts } from "../selectors";
 import { fetchPosts } from "../actions";
 
 class Subreddit extends Component {
@@ -62,12 +61,10 @@ class Subreddit extends Component {
   }
 }
 
-const mapState = (state, { match }) => {
-  return {
-    posts: selectPosts(state, match.params.subreddit),
-    error: state.posts.error,
-    isLoading: state.posts.isLoading
-  };
-};
+const mapState = state => ({
+  posts: state.posts.data.posts,
+  error: state.posts.error,
+  isLoading: state.posts.isLoading
+});
 
 export default connect(mapState)(Subreddit);
