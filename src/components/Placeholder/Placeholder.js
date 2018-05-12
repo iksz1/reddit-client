@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./Placeholder.css";
 
-const count = 15;
+const blockCount = 15;
 
 const Block = () => (
   <Fragment>
@@ -13,7 +13,7 @@ const Block = () => (
 export const Placeholder = () => {
   const blocks = [];
 
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < blockCount; i++) {
     blocks.push(<Block key={i} />);
   }
 

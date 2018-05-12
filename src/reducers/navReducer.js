@@ -3,6 +3,7 @@ import { NAV_TOGGLE_ITEM } from "../actions";
 
 export const navReducer = (state = {}, action) => {
   switch (action.type) {
+    //adds or removes menu item
     case NAV_TOGGLE_ITEM:
       const subs = state.items;
       const item = action.item;
@@ -13,7 +14,10 @@ export const navReducer = (state = {}, action) => {
         const text = ucf(item) || item[0].toUpperCase(); //letter to use for menu
         items.push({ name: mask, text });
       }
-      if (items.length > 0) return { ...state, items }; //at least 1 item must be present
+      if (items.length > 0) {
+        //at least 1 item must be present
+        return { ...state, items };
+      }
       return state;
     default:
       return state;

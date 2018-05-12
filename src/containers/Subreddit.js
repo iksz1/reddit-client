@@ -53,7 +53,11 @@ class Subreddit extends Component {
           {error && <FetchError error={error} />}
           {posts &&
             posts.map(post => (
-              <Post key={post.id} post={post} showComments={e => this.showComments(e, post.permalink)} />
+              <Post
+                key={post.id}
+                post={post}
+                showComments={e => this.showComments(e, post.permalink)}
+              />
             ))}
         </div>
       </Fragment>

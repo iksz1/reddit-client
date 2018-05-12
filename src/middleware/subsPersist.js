@@ -1,5 +1,6 @@
 import { NAV_TOGGLE_ITEM } from "../actions";
 
+//saves menu items (subs) to local storage
 export const subsPersist = store => next => action => {
   if (action.type !== NAV_TOGGLE_ITEM) return next(action);
 

@@ -1,10 +1,12 @@
-const parser = data => {
+const apiDataParser = data => {
   let result = {};
   if (data.data) {
+    //subreddit data
     const { children, after, before } = data.data;
     result.posts = children.map(child => child.data);
     result.meta = { after, before };
   } else {
+    //comments data
     result.post = data[0].data.children[0].data;
     result.comments = flatComments(data[1].data.children);
   }
@@ -39,4 +41,4 @@ const getReplies = comment => {
   return replies;
 };
 
-export default parser;
+export default apiDataParser;

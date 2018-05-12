@@ -1,3 +1,8 @@
+import { createStore, applyMiddleware, compose } from "redux";
+import rootReducer from "./reducers/rootReducer";
+import { fetchMiddleware } from "./middleware/fetchMiddleware";
+import { subsPersist } from "./middleware/subsPersist";
+
 const DEFAULT_SUBS = [
   { name: "javascript", text: "J" },
   { name: "reactjs", text: "R" },
@@ -16,6 +21,15 @@ const loadSubs = () => {
   }
 };
 
-export const initStore = {
-  nav: { items: loadSubs() }
+const initStore = () => {
+  const preloadedState = { nav: { items: loadSubs() } };
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+  return createStore(
+    rootReducer,
+    preloadedState,
+    composeEnhancers(applyMiddleware(fetchMiddleware, subsPersist))
+  );
 };
+
+export default initStore;

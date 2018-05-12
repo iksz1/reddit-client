@@ -1,4 +1,4 @@
-import parser from "../utils/parser";
+import apiDataParser from "../utils/apiDataParser";
 import { getCacheExpDate, getCachedData } from "../selectors";
 import {
   FETCH_POSTS,
@@ -14,12 +14,14 @@ const BASE_URL = "https://www.reddit.com";
 const BASE_PARAMS = "raw_json=1";
 
 const apiGet = url => {
-  return fetch(url).then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error(response.status);
-  });
+  return fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.status);
+    })
+    .then(json => apiDataParser(json));
 };
 
 export const fetchMiddleware = store => next => action => {
@@ -36,8 +38,7 @@ export const fetchMiddleware = store => next => action => {
     const url = `${BASE_URL}/r/${subreddit}/.json?${BASE_PARAMS}`;
 
     apiGet(url)
-      .then(json => {
-        const data = parser(json);
+      .then(data => {
         next(cacheSet(subreddit, data)); //cache response
         return next(fetchPostsSuccess(data));
       })
@@ -51,8 +52,7 @@ export const fetchMiddleware = store => next => action => {
     const url = `${BASE_URL}/r/${subreddit}/comments/${postId}/.json?${BASE_PARAMS}`;
 
     apiGet(url)
-      .then(json => {
-        const data = parser(json);
+      .then(data => {
         return next(fetchCommentsSuccess(data));
       })
       .catch(error => {
